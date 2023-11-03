@@ -29,7 +29,14 @@ android {
                 "proguard-rules.pro"
             )
         }
+
     }
+    afterEvaluate {
+        tasks.named("exportReleaseConsumerProguardFiles") {
+            dependsOn("extractProguardFiles")
+        }
+    }
+
     compileOptions{
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
