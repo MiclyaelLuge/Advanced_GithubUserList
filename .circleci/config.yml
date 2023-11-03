@@ -79,15 +79,13 @@ jobs:
       - run:
           name: Install JDK 17
           command: |
-            sudo apt-get update && sudo apt-get install openjdk-17-jdk
-            sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
-            sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
-            java -version
+            sudo apt-get update
+            sudo apt-get install -y openjdk-17-jdk
 
       - run:
             name: Set JAVA_HOME
             command: |
-                echo 'export JAVA_HOME="/usr/lib/jvm/"' >>$BASH_ENV      
+                echo 'export JAVA_HOME="/usr/lib/jvm/          java-17-openjdk-amd64"' >> $BASH_ENV      
 
       - run:
 
