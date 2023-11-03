@@ -8,6 +8,8 @@ import com.latihan_android.core.data.remote.RemoteDataSource
 import com.latihan_android.core.data.remote.network.ApiService
 import com.latihan_android.core.domain.repository.IUserRepository
 import com.latihan_android.core.utils.AppExecutors
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
@@ -20,20 +22,29 @@ import java.util.concurrent.TimeUnit
 val favoriteDatabaseModule = module {
     factory { get<FavoriteDatabase>().favoriteDao() }
     single {
+        val passphrase:ByteArray = SQLiteDatabase.getBytes("Sayur".toCharArray())
+        val factory = SupportFactory(passphrase)
+
         Room.databaseBuilder(
             androidContext(),
             FavoriteDatabase::class.java, "Favorite.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
 val detailDatabaseModule = module {
     factory { get<DetailDatabase>().detailDao() }
     single {
+        val passphrase:ByteArray=SQLiteDatabase.getBytes("Singkong".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             DetailDatabase::class.java, "Detail.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
