@@ -56,12 +56,6 @@ jobs:
 
           command: sudo chmod +x ./gradlew
 
-      - run:
-
-          name: Download Dependencies
-
-          command: ./gradlew androidDependencies
-
       - save_cache:
 
           key: 'android-orb-v1-{{ epoch }}'
@@ -71,11 +65,6 @@ jobs:
             - ~/.android/build-cache
 
             - ~/.android/cache
-
-            
-
-
-
       - run:
           name: Install JDK 17
           command: |
@@ -87,7 +76,12 @@ jobs:
       - run:
             name: Set JAVA_HOME
             command: |
-                echo 'export JAVA_HOME="/usr/lib/jvm/          java-17-openjdk-amd64"' >> $BASH_ENV      
+                echo 'export JAVA_HOME="/usr/lib/jvm/          java-17-openjdk-amd64"' >> $BASH_ENV  
+      - run:
+
+          name: Download Dependencies
+
+          command: ./gradlew androidDependencies               
 
       - run:
 
