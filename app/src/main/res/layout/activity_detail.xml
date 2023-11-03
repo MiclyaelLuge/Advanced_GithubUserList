@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:overScrollMode="never">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatar_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:padding="8dp"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/realName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/avatar_image"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/realName"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/FavoriteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/userName" />
+
+        <TextView
+            android:id="@+id/labelBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/FavoriteButton"
+            android:padding="4dp"
+            android:text="@string/Biodata"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/UserBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelBio"
+            android:padding="4dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/labeltwitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/UserBio"
+            android:padding="4dp"
+            android:text="@string/Twitter"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TwitterUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labeltwitter"
+            android:padding="4dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/labelFollowers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TwitterUser"
+            android:layout_alignParentStart="true"
+            android:padding="4dp"
+            android:text="@string/Followers"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/FollowersCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelFollowers"
+            android:layout_alignParentStart="true"
+            android:padding="4dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/labelFollowing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TwitterUser"
+            android:layout_alignParentEnd="true"
+            android:padding="4dp"
+            android:text="@string/Following"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/FollowedCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelFollowing"
+            android:layout_alignParentEnd="true"
+            android:padding="4dp"
+            android:textSize="15sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
