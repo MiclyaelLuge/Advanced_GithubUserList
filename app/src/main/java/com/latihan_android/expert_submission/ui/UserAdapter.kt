@@ -1,5 +1,6 @@
 package com.latihan_android.expert_submission.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ListViewHolder>(){
     private var listData = ArrayList<Favorite>()
     var onItemClick: ((Favorite) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(newListData:List<Favorite>?){
         if(newListData == null) return
         listData.clear()
